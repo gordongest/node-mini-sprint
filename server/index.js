@@ -12,11 +12,11 @@ const port = 3000;
 
 // TODO: Fill with strings of your favorite quotes :)
 const quotes = [
-  'one',
-  'two',
-  'three',
-  'four',
-  'five'
+  'It is impossible to teach a man what he thinks he already knows.',
+  'Those who make peaceful revolution impossible will make violent revolution inevitable.',
+  'Beauty, Simplicity, Originality, Discrimination, Sincerity',
+  'Absorb what is useful, reject what is useless',
+  'I tried practicing once, but ended up playing too fast'
 ];
 
 //Utility Function to return a random integer
@@ -37,12 +37,15 @@ const handleRequest = function(req, res) {
   }
 
   // TODO: GET ONE
-  if ((req.url == '/quote/' || req.url == '/quote') && req.method == "FILL ME IN") {
-    //YOUR CODE HERE
-
+  if ((req.url == '/quote/' || req.url == '/quote') && req.method == "GET") {
+    console.log('it did a thing');
+    res.writeHead(200, {...headers, Location: `http://localhost:${port}/quote`});
+    res.write(quotes[Math.floor(Math.random() * quotes.length)]);
+    res.end();
   }
+
   // TODO: POST/CREATE
-  else if ((req.url == 'FILL ME IN' || req.url == 'FILL ME IN') && req.method == "FILL ME IN") {
+  else if ((req.url == '/new/' || req.url == '/new') && req.method == "POST") {
     //YOUR CODE HERE
   }
 
@@ -50,7 +53,6 @@ const handleRequest = function(req, res) {
   else {
     res.writeHead(404,headers);
     res.end('Page not found');
-
   }
 }
 

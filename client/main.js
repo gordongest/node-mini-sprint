@@ -10,15 +10,11 @@ $(document).ready(function() {
     addQuote(quote);
   });
 
-  function getQuote(){
-
-    //YOUR CODE HERE, Add a GET request
-
+  function getQuote() {
+    $.ajax()
   }
 
-  function addQuote(quote){
-    
-    //YOUR CODE HERE, Add a POST request
-
+  function addQuote(quote) {
+    $.ajax()
   }
 });
